@@ -1,3 +1,16 @@
+Instructions to run Application: <br />
+
+Workdir `main` <br />
+python3 app/main.py
+
+Instructions to run Unit tests: <br />
+
+Set: sys.path.insert(0, '/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/code/main/app') to your local path in test_functions.py file. <br />
+
+Workdir `test`<br />
+python3 test.py
+
+Project Structure and Files: <br />
 Folder main: <br />
 `Dockerfile` - Application is built on pythin alpine image, dockerfile contains instruction to run python flask application. <br />
 
