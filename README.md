@@ -1,38 +1,38 @@
-Folder k8:
+Folder main: <br />
+`Dockerfile` - Application is built on pythin alpine image, dockerfile contains instruction to run python flask application. <br />
 
-Contains the kubernetes pod, configmap yaml files specific to rainfall service.
-pod.yml - contains instructions to run rainfall status check python application.
-configmap.yml - contains the configuration details of location and api_url.
+app: <br />
+`main.py` - Contains python application to fetch rainfall status. <br />
+api_url: https://api.data.gov.sg/v1/environment/rainfall (to check live rainfall status) <br />
+location: <any valid location> <br />
 
-Folder main:
-Dockerfile - Application is built on pythin alpine image, dockerfile contains instruction to run python flask application.
+Setting environment variable with below commands in Linux/mac system: <br />
+`export API_URL="https://api.data.gov.sg/v1/environment/rainfall"` <br />
+`export LOCATION="Marina Gardens Drive"` <br />
 
-app:
-main.py - Contains python application to fetch rainfall status.
-api_url: https://api.data.gov.sg/v1/environment/rainfall (to check live rainfall status)
-location: <any valid location>
+`functions.py` - Contains definitions to fetch the rainfall status. <br />
 
-Setting environment variable with below commands in Linux/mac system:
-export API_URL="https://api.data.gov.sg/v1/environment/rainfall"
-export LOCATION="Marina Gardens Drive"
+test: <br />
+`api_raining.json` - Contains the test data of raining status taken when raining in Upper Changi Road North location. <br />
+`test_functions.py` - Contains all the functions that are used to call and test scenarios. <br />
+`test.py` - Contains scenarios to check the Raining, Not Raining, Station id and Env variable tests. <br />
 
-functions.py - Contains definitions to fetch the rainfall status.
+logs: <br />
+`tdd_logs` - contains the tdd test scenario logs<br />
 
-test:
-api_raining.json - Contains the test data of raining status taken when raining in Upper Changi Road North location.
-test_functions.py - Contains all the functions that are used to call and test scenarios.
-test.py - Contains scenarios to check the Raining, Not Raining, Station id and Env variable tests.
+Folder k8: <br />
 
-logs:
-tdd_logs - contains the tdd test scenario logs
+Contains the kubernetes pod, configmap yaml files specific to rainfall service. <br />
+`pod.yml` - contains instructions to run rainfall status check python application. <br />
+`configmap.yml` - contains the configuration details of location and api_url. <br />
 
-Folder others:
+Folder others: <br />
 
-Contains all the trials tried for api implementation in python.
+Contains all the trials tried for api implementation in python. <br />
 
-Assumptions:
+Assumptions: <br />
 
-Flask : Using python flask to run webservice.
-CSV : comma separated values.
-Docker registry : using personal public dockerhub to store rainfall status check service docker images.
-eg image: 104466/rainfall_flask_env:latest.
+Flask : Using python flask to run webservice.<br />
+CSV : comma separated values.<br />
+Docker registry : using personal public dockerhub to store rainfall status check service docker images.<br />
+eg image: 104466/rainfall_flask_env:latest.<br />
