@@ -1,0 +1,14 @@
+shruthibhaskar@DESKTOP-ZVFQQMBH main % python3 app/main.py                                           
+
+ Rainfall Service Running... 
+
+ * Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+
+ Env values are API_URL:https://api.data.gov.sg/v1/environment/rainfall, LOCATION:Marina Gardens Drive 
+
+ Fetching rainfall status for Marina Gardens Drive location
+ Marina Gardens Drive, 15:06, 0mm, Not Raining 

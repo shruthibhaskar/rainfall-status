@@ -1,0 +1,88 @@
+Scenario 1: If LOCATION env has not been set.
+
+shruthibhaskar@DESKTOP-ZVFQQMBH main % python3 app/main.py
+
+ Rainfall Service Running... 
+
+ * Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+[2022-07-19 15:01:52,986] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/rainfall-status/main/app/main.py", line 14, in rainfall_data
+    location = env_check("LOCATION")
+  File "/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/rainfall-status/main/app/functions.py", line 10, in env_check
+    raise ValueError('Set {0} Environment variable'.format(env_var))
+ValueError: Set LOCATION Environment variable
+
+===
+Scenario 2: If non existing dummy location is specified in environment variable value
+
+shruthibhaskar@DESKTOP-ZVFQQMBH main % python3 app/main.py                  
+
+ Rainfall Service Running... 
+
+ * Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+
+ Env values are API_URL:https://api.data.gov.sg/v1/environment/rainfall, LOCATION:Alexandra Road Dummy 
+
+[2022-07-19 15:03:14,604] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/rainfall-status/main/app/main.py", line 19, in rainfall_data
+    station_id = fetch_id(data, location)
+  File "/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/rainfall-status/main/app/functions.py", line 39, in fetch_id
+    raise KeyError(message)
+KeyError: 'Said location Alexandra Road Dummy cannot be found, Please provide a valid location'
+
+===
+Scenario 3: If Invalid API_URL is specified, eg: https://api.data.gov.sg/v1/environment/rainfallllll
+
+shruthibhaskar@DESKTOP-ZVFQQMBH main % python3 app/main.py                                               
+
+ Rainfall Service Running... 
+
+ * Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+
+ Env values are API_URL:https://api.data.gov.sg/v1/environment/rainfallllll, LOCATION:Alexandra Road Dummy 
+
+[2022-07-19 15:04:37,305] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/rainfall-status/main/app/main.py", line 17, in rainfall_data
+    data = fetch_api_data(api_url)
+  File "/Users/shruthibhaskar/Work/Shruthi_Bhaskar/Dell/rainfall-status/main/app/functions.py", line 19, in fetch_api_data
+    raise ValueError('Please provide a valid Rainfall url, provided url is {0}'.format(url))
+ValueError: Please provide a valid Rainfall url, provided url is https://api.data.gov.sg/v1/environment/rainfalllll
