@@ -1,0 +1,19 @@
+shruthibhaskar@DESKTOP-ZVFQQMBH test % python3 test.py 
+
+Check environment variable LOCATION value
+LOCATION = Ang Mo Kio Avenue 5 
+
+.Fetch station_id of Tuas West Road location
+Station id of Tuas West Road location is S82 
+
+.To test Raining status for Bukit Timah Road location
+Bukit Timah Road, 12:10, 0mm, Not Raining 
+
+.To test Raining status for Upper Changi Road North location
+Upper Changi Road North, 12:10, 1.8mm, Raining 
+
+.
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK
