@@ -1,2 +1,2 @@
 # rainfall-status
-To check the live rainfall status of Singapore in various locations
+To check the live rainfall status in Singapore of various locations
