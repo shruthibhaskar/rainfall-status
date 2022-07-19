@@ -1,0 +1,14 @@
+FROM python:3.8
+
+ENV SRC_DIR /usr/bin/src/webapp/src
+
+COPY . ${SRC_DIR}/
+
+WORKDIR ${SRC_DIR}
+
+# to not buffer logs and send directly to stdout
+ENV PYTHONUNBUFFERED=1
+
+EXPOSE 8080
+
+CMD ["python", "main_httpserver.py"]
