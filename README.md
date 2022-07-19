@@ -4,7 +4,7 @@ Folder main: <br />
 app: <br />
 `main.py` - Contains python application to fetch rainfall status. <br />
 api_url: https://api.data.gov.sg/v1/environment/rainfall (to check live rainfall status) <br />
-location: <any valid location> <br />
+location: "any valid location" <br />
 
 Setting environment variable with below commands in Linux/mac system: <br />
 `export API_URL="https://api.data.gov.sg/v1/environment/rainfall"` <br />
