@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rainfall-dep
+  name: rainfall-dep
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: rainfall-dep
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rainfall-dep
+    spec:
+      containers:
+      - image: 104466/rainfall-status:v2
+        imagePullPolicy: Always
+        name: rainfall-flask-env
+        envFrom:
+        - configMapRef:
+            name: rainfall-config
+        resources: {}
+status: {}
