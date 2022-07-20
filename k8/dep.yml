@@ -16,7 +16,7 @@ spec:
         app: rainfall-dep
     spec:
       containers:
-      - image: 104466/rainfall-status:v2
+      - image: 104466/rainfall-status:v4
         imagePullPolicy: Always
         name: rainfall-flask-env
         envFrom:

@@ -12,7 +12,7 @@ log.disabled = True
 def rainfall_data():
     api_url = env_check("API_URL")
     location = env_check("LOCATION")
-    print('\n',"Env values are API_URL:{0}, LOCATION:{1}".format(api_url,location),'\n')
+    # print('\n',"Env values are API_URL:{0}, LOCATION:{1}".format(api_url,location))
 
     data = fetch_api_data(api_url)
     unit = fetch_unit(data)
