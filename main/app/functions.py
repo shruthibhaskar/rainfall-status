@@ -11,7 +11,7 @@ def env_check(env_var):
         exit()
     
 def fetch_api_data(url):
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
     if response.status_code == 200:
         data = response.json()
         return data

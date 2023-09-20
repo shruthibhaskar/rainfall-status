@@ -5,14 +5,14 @@ from functions import fetch_id,fetch_unit,fetch_rainfall_status,env_check,fetch_
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
-log.disabled = True    
+log.disabled = False    
 
 @app.route('/')
 
 def rainfall_data():
     api_url = env_check("API_URL")
     location = env_check("LOCATION")
-    # print('\n',"Env values are API_URL:{0}, LOCATION:{1}".format(api_url,location))
+    print('\n',"Env values are API_URL:{0}, LOCATION:{1}".format(api_url,location))
 
     data = fetch_api_data(api_url)
     unit = fetch_unit(data)
